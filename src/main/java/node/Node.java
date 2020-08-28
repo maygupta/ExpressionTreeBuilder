@@ -1,16 +1,16 @@
 package node;
 
 public interface Node {
-	int value();
+  int value();
 
-	default Node left() {
-		return null;
-	}
+  default Node left() {
+    return null;
+  }
 
-	default Node right() {
-		return null;
-	}
+  default Node right() {
+    return null;
+  }
 
-	int eval();
+  int eval();
 
 }
