@@ -2,7 +2,7 @@ package node;
 
 public class AddOperatorNode extends BinaryOperatorNode {
 
-	AddOperatorNode(Node left, Node right) {
+  AddOperatorNode(Node left, Node right) {
     this.operator = '+';
     this.left = left;
     this.right = right;
