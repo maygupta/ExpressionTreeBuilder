@@ -4,5 +4,5 @@ import tree.ExpressionTree;
 
 public interface TreeBuilder {
 
-	ExpressionTree build(String expression);
+  ExpressionTree build(String expression);
 }

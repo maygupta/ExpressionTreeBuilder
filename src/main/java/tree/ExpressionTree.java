@@ -5,9 +5,9 @@ import traverse.TraverseStrategy;
 
 public interface ExpressionTree {
 
-	Node getRoot();
+  Node getRoot();
 
-	int eval();
+  int eval();
 
-	void traverse(TraverseStrategy strategy);
+  void traverse(TraverseStrategy strategy);
 }
