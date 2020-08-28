@@ -2,18 +2,15 @@ package traverse;
 
 import node.LeafNode;
 import node.Node;
+import visit.Visitor;
 
 public class PreOrderTraversal implements TraverseStrategy {
   @Override
-  public void traverse(Node node) {
+  public void traverse(Node node, Visitor visitor) {
     if (node != null) {
-      if (node instanceof LeafNode) {
-        System.out.println(node.value());
-      } else {
-        System.out.println((char)node.value());
-      }
-      traverse(node.left());
-      traverse(node.right());
+      visitor.visit(node);
+      traverse(node.left(), visitor);
+      traverse(node.right(), visitor);
     }
   }
 }

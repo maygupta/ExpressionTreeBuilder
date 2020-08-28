@@ -1,5 +1,7 @@
 package node;
 
+import visit.Visitor;
+
 public abstract class OperatorNode implements Node{
   char operator;
   Node left;
@@ -15,5 +17,9 @@ public abstract class OperatorNode implements Node{
 
   @Override
   public abstract Node right();
+
+  public char getOperator() {
+  	return operator;
+  }
 
 }

@@ -1,5 +1,7 @@
 package node;
 
+import visit.Visitor;
+
 public class LeafNode implements Node {
   int item;
 
@@ -26,4 +28,5 @@ public class LeafNode implements Node {
   public int eval() {
     return item;
   }
+
 }

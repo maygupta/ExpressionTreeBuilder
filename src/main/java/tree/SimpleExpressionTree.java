@@ -2,6 +2,7 @@ package tree;
 
 import node.Node;
 import traverse.TraverseStrategy;
+import visit.Visitor;
 
 public class SimpleExpressionTree implements ExpressionTree {
   Node root;
@@ -21,8 +22,8 @@ public class SimpleExpressionTree implements ExpressionTree {
   }
 
   @Override
-  public void traverse(TraverseStrategy strategy) {
-    strategy.traverse(root);
+  public void traverse(TraverseStrategy strategy, Visitor visitor) {
+    strategy.traverse(root, visitor);
   }
 
 }

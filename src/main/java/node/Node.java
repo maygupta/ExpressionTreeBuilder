@@ -1,5 +1,7 @@
 package node;
 
+import visit.Visitor;
+
 public interface Node {
   int value();
 
