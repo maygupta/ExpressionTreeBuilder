@@ -9,11 +9,14 @@ import node.Node;
 import node.OperatorFactory;
 
 public class InfixTreeBuilder implements TreeBuilder {
-  Stack<Character> charStack = new Stack<>();
-  Stack<Node> nodeStack = new Stack<>();
+
+  Stack<Character> charStack;
+  Stack<Node> nodeStack;
 
   @Override
   public ExpressionTree build(String expression) {
+    charStack = new Stack<>();
+    nodeStack = new Stack<>();
     String currentNumber = "";
 
     for(Character s: expression.toCharArray()) {
@@ -23,17 +26,19 @@ public class InfixTreeBuilder implements TreeBuilder {
           currentNumber = "";
         }
 
-        if (charStack.empty() || s.equals('(')) {
+        if ( s.equals('(')) {
           charStack.push(s);
-        } else if (s.equals(')')) {
+          continue;
+        }
+        if (s.equals(')')) {
           while ( !charStack.peek().equals('(') ) {
             eval();
           }
           // Pop '('
           charStack.pop();
-        } else if (!charStack.empty() && OperatorFactory.isHigerOrderOperator(s, charStack.peek())) {
-          charStack.push(s);
-        } else if (!charStack.empty() && !OperatorFactory.isHigerOrderOperator(s, charStack.peek())) {
+          continue;
+        }
+        if (!charStack.empty() && !OperatorFactory.isHigerOrderOperator(s, charStack.peek())) {
           while ( !charStack.empty() ) {
             if (charStack.peek().equals('(') ) {
               break;
@@ -42,10 +47,8 @@ public class InfixTreeBuilder implements TreeBuilder {
             }
             break;
           }
-          charStack.push(s);
-        } else {
-          charStack.push(s);
         }
+        charStack.push(s);
       } else {
         currentNumber += s;
       }
