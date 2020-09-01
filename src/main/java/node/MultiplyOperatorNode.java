@@ -1,7 +1,5 @@
 package node;
 
-import javax.script.ScriptEngineManager;
-
 public class MultiplyOperatorNode extends BinaryOperatorNode {
 
   MultiplyOperatorNode(Node left, Node right) {

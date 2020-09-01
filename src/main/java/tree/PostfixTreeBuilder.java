@@ -6,7 +6,7 @@ import node.Node;
 import node.OperatorFactory;
 import node.LeafNode;
 
-public class SimpleTreeBuilder implements TreeBuilder{
+public class PostfixTreeBuilder implements TreeBuilder{
 
   @Override
   public ExpressionTree build(String expression) {
