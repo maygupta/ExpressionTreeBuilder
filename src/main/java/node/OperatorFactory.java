@@ -11,6 +11,10 @@ public class OperatorFactory {
     return operators.contains(s);
   }
 
+  public static Boolean isOperator(String s) {
+    return isOperator(s.charAt(0));
+  }
+
   public static Node getOperatorNode(Character s, Node left, Node right) {
     if (isOperator(s)) {
       if ( s.equals('*')) {
@@ -26,6 +30,10 @@ public class OperatorFactory {
     return null;
   }
 
+  public static Node getOperatorNode(String s, Node left, Node right) {
+    return getOperatorNode(s.charAt(0), left, right);
+  }
+
   public static Node getOperatorNode(Character s, Node right) {
     if (isOperator(s)) {
       if ( s.equals('-')) {
@@ -36,8 +44,8 @@ public class OperatorFactory {
   }
 
   // Rank op1 > Rank op2
-  public static boolean isHigerOrderOperator(Character op1, Character op2) {
-    return operators.indexOf(op1) > operators.indexOf(op2);
+  public static boolean isHigerOrderOperator(String op1, String op2) {
+    return operators.indexOf(op1.charAt(0)) > operators.indexOf(op2.charAt(0));
   }
 
 }
